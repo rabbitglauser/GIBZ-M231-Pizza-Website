@@ -1,86 +1,131 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+body, h1, h2, p, ul, li, form, input, textarea, button {
     margin: 0;
     padding: 0;
-    color: #000;
-    text-align: center;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Ensure vertical center alignment */
+    align-items: stretch; /* Take full width */
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px; /* Add padding to avoid elements hitting window edges */
 }
 
 header {
+    width: 100%;
+    background-color: #87CEEB; /* Sky blue header */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #add8e6;
     padding: 10px 20px;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #333;
 }
 
-header .logo h1 {
-    font-size: 20px;
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #000;
+header h1 {
+    font-size: 24px;
     font-weight: bold;
+    color: #333;
 }
 
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #007BFF; /* Blue hover */
+}
+
+/* Content Section */
 .content {
-    text-align: center;
+    background: #fff;
+    border: 2px solid #333;
     padding: 20px;
+    width: 100%; /* Ensure it takes full available space */
+    max-width: 800px; /* Limit maximum width for better readability */
+    margin: 40px auto; /* Center elements horizontally */
+    border-radius: 5px;
+    text-align: center;
 }
 
-form {
-    display: inline-block;
-    text-align: left;
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Comic Sans MS', cursive;
 }
 
 form p {
     font-weight: bold;
-}
-
-form input, form textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
-}
-
-form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #add8e6;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-form button:hover {
-    background-color: #87cefa;
-}
-
-.footer {
-    background-color: #add8e6;
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
     text-align: left;
+    margin-bottom: 10px;
+}
+
+form label {
+    margin-right: 20px;
     font-size: 14px;
 }
 
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form textarea {
+    resize: none;
+}
+
+form button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Section */
+.footer {
+    width: 100%;
+    background-color: #87CEEB;
+    padding: 20px;
+    border-top: 2px solid #333;
+    display: flex;
+    justify-content: center; /* Center content within the footer */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .footer div {
-    width: 30%;
+    flex: 1;
+    text-align: center;
 }
 
 .footer p {
-    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
 }
