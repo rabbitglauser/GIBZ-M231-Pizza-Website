@@ -2,9 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tony's Pizza Factory - Feedback</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="header">
+    <h1>Tony's Pizza Factory</h1>
+    <nav>
+        <a href="#">Pizza</a>
+        <a href="#">Salad</a>
+        <a href="#">Soft drinks</a>
+        <a href="#">Feedback</a>
+    </nav>
+</div>
+<div class="content">
+    <h2>Tell us what you think</h2>
+    <form action="#" method="post">
+        <p>How do you like our pizza?</p>
+        <label><input type="radio" name="pizza_rating" value="Awesome"> Awesome</label>
+        <label><input type="radio" name="pizza_rating" value="Good"> Good</label>
+        <label><input type="radio" name="pizza_rating" value="Okay"> Okay</label>
+        <label><input type="radio" name="pizza_rating" value="Poor"> Poor</label>
 
+        <p>What do you think about our prices?</p>
+        <label><input type="radio" name="price_rating" value="Fair"> Fair</label>
+        <label><input type="radio" name="price_rating" value="Okay"> Okay</label>
+        <label><input type="radio" name="price_rating" value="Expensive"> Expensive</label>
+
+        <p>Your name:</p>
+        <input type="text" name="name" required>
+
+        <p>Your e-mail address:</p>
+        <input type="email" name="email" required>
+
+        <p>What can we do better?</p>
+        <textarea name="feedback" rows="4"></textarea>
+
+        <button type="submit">Send</button>
+    </form>
+</div>
+<div class="footer">
+    <div class="hours">
+        <p>Hours:<br>
+            Mon-Thu: 11 a.m. - 2:30 p.m.<br>
+            Fri-Sat: 11 a.m. - 2:00 p.m.<br>
+            Sunday: Closed</p>
+    </div>
+    <div class="quote">
+        <p>"The Pizzeria is one place I have been wanting to visit for a long time. The reason being their Napoli pizza which absolutely blew me away." - Jimmy</p>
+    </div>
+    <div class="address">
+        <p>Address:<br>
+            Tony's Pizza Factory<br>
+            2122 N Clark St<br>
+            Chicago, IL 60614, USA</p>
+    </div>
+</div>
 </body>
 </html>
