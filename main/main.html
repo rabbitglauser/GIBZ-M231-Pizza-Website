@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tony's Pizza Factory</title>
     <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 10px;
+            top: 50px;
+            border-radius: 8px;
+            width: 200px;
+        }
+
+        .cart-dropdown-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .show-cart-dropdown {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -13,10 +40,16 @@
     </div>
     <nav>
         <ul>
-            <li><a href="../pizza./pizza.html">Pizza</a> </li>
+            <li><a href="../pizza./pizza.html">Pizza</a></li>
             <li><a href="../salad./salad.html">Salad</a></li>
             <li><a href="../soft-drinks./soft-drinks.html">Soft drinks</a></li>
             <li><a href="../feedback./feedback.html">Feedback</a></li>
+            <button onclick="toggleCartDropdown()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+            <div id="cartDropdown" class="cart-dropdown">
+                <div class="cart-dropdown-item">Pizza - $12.99</div>
+                <div class="cart-dropdown-item">Salad - $9.99</div>
+                <div class="cart-dropdown-item">Soft drinks - $3.49</div>
+            </div>
         </ul>
     </nav>
 </header>
@@ -45,11 +78,29 @@
         <b><p>Hours:<br>Mon-Thu: 11 a.m. - 23 p.m.<br>Fri-Sat: 11 a.m. - 24 p.m.<br>Sunday closed</p></b>
     </div>
     <div class="review">
-        <b><p>"The Pizzeria is one place I have been wanting to visit for a long time. The reason being their Rustica pizza which absolutely blew me away." - Jimmy</p></b>
+        <b><p>"The Pizzeria is one place I have been wanting to visit for a long time. The reason being their Rustica
+            pizza which absolutely blew me away." - Jimmy</p></b>
     </div>
     <div class="address">
-        <b><p>Address:<br>Tony's Pizza Factory<br>2122 N Clark St<br>Chicago, IL 60614, USA</p></b>b>
+        <b><p>Address:<br>Tony's Pizza Factory<br>2122 N Clark St<br>Chicago, IL 60614, USA</p></b>
     </div>
 </footer>
+<script>
+    function toggleCartDropdown() {
+        document.getElementById("cartDropdown").classList.toggle("show-cart-dropdown");
+    }
+
+    window.onclick = function (event) {
+        if (!event.target.matches('.fa-shopping-cart')) {
+            var dropdowns = document.getElementsByClassName("cart-dropdown");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show-cart-dropdown')) {
+                    openDropdown.classList.remove('show-cart-dropdown');
+                }
+            }
+        }
+    }
+</script>
 </body>
 </html>
