@@ -3,16 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="./assets/css/main/styling.css">
+    <style>
+        *, ::before, ::after {
+            box-sizing: border-box;
+        }
+
+        html::before {
+            content: "";
+            border: 5px solid black;
+            height: 100vh;
+            position: fixed;
+            width: 100vw;
+            z-index: 9999; /* Ensure it stays on top */
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: auto; /* Allow scrollbars if needed */
+        }
+
+        .fullscreen-border {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            width: calc(100% - 10px); /* Adjust for the border width */
+            height: calc(100% - 10px); /* Adjust for the border width */
+            border: 5px solid black;
+            box-sizing: border-box;
+            pointer-events: none; /* Prevent the border from obstructing content below */
+            z-index: 9999; /* Ensure it stays on top */
+        }
+
+        .maintext {
+            padding: 10px 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #444;
+            background-color: #f9f9f9;
+            border-left: 3px solid #add8e6;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        header {
+            background-color: #add8e6;
+            padding: 30px 30px;
+            display: flex;
+            justify-content: space-between; /* Distribute space between logo and nav */
+            align-items: center;
+            border-top: 5px solid black;
+            border-bottom: 5px solid black;
+            z-index: 10000;
+            width: calc(100% - 20px); /* Account for the fullscreen border */
+            margin: 10px auto; /* Center the header horizontally */
+            box-sizing: border-box;
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px; /* Match navigation text size */
+            font-weight: normal; /* Consistent weight with nav links */
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-
 <div class="fullscreen-border"></div>
 
-<p class="maintext" >Tony's pizza website</p>
+<p class="maintext">Tony's Pizza Website</p>
+
 <header>
-    <a href="homepage.html" style="text-decoration: none; color: black;">Tony's Pizza Factory</a>
+    <a href="homepage.html">Tony's Pizza Factory</a>
     <nav>
         <a href="#">Pizza</a>
         <a href="#">Salad</a>
@@ -20,4 +103,6 @@
         <a href="#">Feedback</a>
     </nav>
 </header>
+</body>
+</html>
 
