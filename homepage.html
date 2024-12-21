@@ -4,103 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tony's Pizza Factory</title>
-    <link rel="stylesheet" href="assets/css/main/styling.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .cart-dropdown {
-            display: none;
-            position: absolute;
-            background-color: white;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            right: 10px;
-            top: 50px;
-            border-radius: 8px;
-            width: 200px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
         }
 
-        .cart-dropdown-item {
+        header {
+            background-color: #add8e6;
+            color: black;
             padding: 10px;
-            border-bottom: 1px solid #ddd;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .cart-dropdown-item:last-child {
-            border-bottom: none;
+        header h1 {
+            margin-left: 20px;
         }
 
-        .show-cart-dropdown {
-            display: block;
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #add8e6;
+            padding: 10px 20px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            border: 1px solid #ccc;
+        }
+
+        .menu-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .menu-section div {
+            text-align: center;
+        }
+
+        .menu-section img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #add8e6;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .footer-item {
+            margin: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer-item p {
+            margin: 5px 0;
+        }
+
+        .footer-quote {
+            max-width: 300px;
         }
     </style>
 </head>
 <body>
+    <p>Tony's pizza website</p>
 <header>
-    <div class="logo">
-        <h1>Tony's Pizza Factory</h1>
-    </div>
+    <a href="homepage.html" style="text-decoration: none; color: black;">Tony's Pizza Factory</a>
     <nav>
-        <ul>
-            <li><a href="../pizza./pizza.html">Pizza</a></li>
-            <li><a href="../salad./salad.html">Salad</a></li>
-            <li><a href="../soft-drinks./soft-drinks.html">Soft drinks</a></li>
-            <li><a href="../feedback./feedback.html">Feedback</a></li>
-            <button onclick="toggleCartDropdown()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
-            <div id="cartDropdown" class="cart-dropdown">
-                <div class="cart-dropdown-item">Pizza - $12.99</div>
-                <div class="cart-dropdown-item">Salad - $9.99</div>
-                <div class="cart-dropdown-item">Soft drinks - $3.49</div>
-            </div>
-        </ul>
+        <a href="#">Pizza</a>
+        <a href="#">Salad</a>
+        <a href="#">Soft Drinks</a>
+        <a href="#">Feedback</a>
     </nav>
 </header>
-<main>
-    <h2>Welcome to Tony's Pizza Factory</h2>
-    <div class="main-image">
-        <img src="assets/images/homepage/tony-pizza-restaurant.jpg" alt="Interior of Tony's Pizza Factory">
+
+<div class="content">
+    <h1>Welcome to Tony's Pizza Factory</h1>
+    <div class="image-section">
+        <img src="https://via.placeholder.com/300x200" alt="Pizza Factory Interior">
     </div>
-    <div class="menu">
-        <div class="menu-item" id="pizza">
-            <img src="assets/images/homepage/tony-pizza-pizza-image.jpg" alt="Pizza">
+
+    <div class="menu-section">
+        <div>
+            <img src="https://via.placeholder.com/150" alt="Pizza">
             <p>Pizza</p>
         </div>
-        <div class="menu-item" id="salad">
-            <img src="assets/images/homepage/tony-pizza-salad-image.jpg" alt="Salad">
+        <div>
+            <img src="https://via.placeholder.com/150" alt="Salad">
             <p>Salad</p>
         </div>
-        <div class="menu-item" id="soft-drinks">
-            <img src="assets/images/homepage/tony-pizza-softdrinks-image.jpg" alt="Soft drinks">
-            <p>Soft drinks</p>
+        <div>
+            <img src="https://via.placeholder.com/150" alt="Soft Drinks">
+            <p>Soft Drinks</p>
         </div>
     </div>
-</main>
+</div>
+
 <footer>
-    <div class="hours">
-        <b><p>Hours:<br>Mon-Thu: 11 a.m. - 23 p.m.<br>Fri-Sat: 11 a.m. - 24 p.m.<br>Sunday closed</p></b>
+    <div class="footer-item">
+        <p>Hours:</p>
+        <p>Mon-Thu: 11 a.m. - 2:3 p.m.</p>
+        <p>Fri-Sat: 11 a.m. - 2:4 p.m.</p>
+        <p>Sunday: Closed</p>
     </div>
-    <div class="review">
-        <b><p>"The Pizzeria is one place I have been wanting to visit for a long time. The reason being their Rustica
-            pizza which absolutely blew me away." - Jimmy</p></b>
+
+    <div class="footer-item footer-quote">
+        <p>"The Pizzeria is one place I have been wanting to visit for a long time. The reason being their Rustica pizza which absolutely blew me away" - Jimmy</p>
     </div>
-    <div class="address">
-        <b><p>Address:<br>Tony's Pizza Factory<br>2122 N Clark St<br>Chicago, IL 60614, USA</p></b>
+
+    <div class="footer-item">
+        <p>Address:</p>
+        <p>Tony's Pizza Factory</p>
+        <p>2122 N Clark St</p>
+        <p>Chicago, IL 60614, USA</p>
     </div>
 </footer>
-<script>
-    function toggleCartDropdown() {
-        document.getElementById("cartDropdown").classList.toggle("show-cart-dropdown");
-    }
-
-    window.onclick = function (event) {
-        if (!event.target.matches('.fa-shopping-cart')) {
-            var dropdowns = document.getElementsByClassName("cart-dropdown");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show-cart-dropdown')) {
-                    openDropdown.classList.remove('show-cart-dropdown');
-                }
-            }
-        }
-    }
-</script>
 </body>
 </html>
