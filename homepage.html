@@ -4,105 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/main/styling.css">
-    <style>
-        *, ::before, ::after {
-            box-sizing: border-box;
-        }
-
-        html::before {
-            content: "";
-            border: 5px solid black;
-            height: 100vh;
-            position: fixed;
-            width: 100vw;
-            z-index: 9999; /* Ensure it stays on top */
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            overflow: auto; /* Allow scrollbars if needed */
-        }
-
-        .fullscreen-border {
-            position: fixed;
-            top: 5px;
-            left: 5px;
-            width: calc(100% - 10px); /* Adjust for the border width */
-            height: calc(100% - 10px); /* Adjust for the border width */
-            border: 5px solid black;
-            box-sizing: border-box;
-            pointer-events: none; /* Prevent the border from obstructing content below */
-            z-index: 9999; /* Ensure it stays on top */
-        }
-
-        .maintext {
-            padding: 10px 10px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
-            color: #444;
-            background-color: #f9f9f9;
-            border-left: 3px solid #add8e6;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        header {
-            background-color: #add8e6;
-            padding: 30px 30px;
-            display: flex;
-            justify-content: space-between; /* Distribute space between logo and nav */
-            align-items: center;
-            border-top: 5px solid black;
-            border-bottom: 5px solid black;
-            z-index: 10000;
-            width: calc(100% - 20px); /* Account for the fullscreen border */
-            margin: 10px auto; /* Center the header horizontally */
-            box-sizing: border-box;
-        }
-
-        header a {
-            text-decoration: none;
-            color: black;
-            font-size: 18px; /* Match navigation text size */
-            font-weight: normal; /* Consistent weight with nav links */
-        }
-
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: black;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body>
-<div class="fullscreen-border"></div>
-
-<p class="maintext">Tony's Pizza Website</p>
-
-<header>
-    <a href="homepage.html">Tony's Pizza Factory</a>
+<div class="header">
+    <div class="logo" href="homepage.html">Tony's Pizza Factory</div>
     <nav>
-        <a href="#">Pizza</a>
-        <a href="#">Salad</a>
-        <a href="#">Soft Drinks</a>
-        <a href="#">Feedback</a>
+        <a href="pizza.html">Pizza</a>
+        <a href="salad.html">Salad</a>
+        <a href="soft-drinks.html">Soft drinks</a>
+        <a href="feedback.html">Feedback</a>
     </nav>
-</header>
+</div>
+
+<main>
+    <h1>Welcome to Tony's Pizza Factory</h1>
+    <div class="main-content">
+        <img src="./assets/images/homepage/tony-pizza-restaurant.jpg" alt="Restaurant interior" class="main-image">
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="./assets/images/homepage/tony-pizza-pizza-image.jpg" alt="Pizza">
+                <p>Pizza</p>
+            </div>
+            <div class="menu-item">
+                <img src="./assets/images/homepage/tony-pizza-salad-image.jpg" alt="Salad">
+                <p>Salad</p>
+            </div>
+            <div class="menu-item">
+                <img src="./assets/images/homepage/tony-pizza-softdrinks-image.jpg" alt="Soft drinks">
+                <p>Soft drinks</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-left">
+        <p>Hours:</p>
+        <p>Mon-Thu: 11 a.m. - 11 p.m.</p>
+        <p>Fri-Sat: 11 a.m. - Midnight</p>
+        <p>Sunday: Closed</p>
+    </div>
+    <div class="footer-middle">
+        <p>"The Pizzeria is one place I have been</p>
+        <p>wanting to visit for a long time.</p>
+        <p>The reason being their Rustica pizza</p>
+        <p>which absolutely blew me away." - Jimmy</p>
+    </div>
+    <div class="footer-right">
+        <p>Address:</p>
+        <p>Tony's Pizza Factory</p>
+        <p>2122 N Clark St</p>
+        <p>Chicago, IL 60614, USA</p>
+    </div>
+</footer>
 </body>
 </html>
-

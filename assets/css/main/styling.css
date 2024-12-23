@@ -1,0 +1,115 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Header styles */
+.header {
+    background-color: #9CC4E4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    color: black;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Main content styles */
+main {
+    flex: 1;
+    text-align: center;
+    margin: 20px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content .main-image {
+    width: 20%;
+    height: auto;
+}
+
+.main-image {
+    width: 80%;
+    height: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.menu-item p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Footer styles */
+footer {
+    background-color: #9CC4E4;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    color: black;
+    flex-wrap: wrap;
+}
+
+footer div {
+    text-align: center;
+    margin: 10px;
+}
+
+.footer-left p,
+.footer-right p {
+    margin: 5px 0;
+}
+
+.footer-middle p {
+    margin: 2px 0;
+}
+
+/* Ensures footer is always at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
