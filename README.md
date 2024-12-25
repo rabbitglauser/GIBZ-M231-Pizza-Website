@@ -5,7 +5,10 @@
 ### Website Layout 🎨
 - 🖌️ The layout is designed based on a provided mockup.
 - 🔗 All website links work perfectly, leading to the correct pages.
-![bitcoin suisse](https://github.com/user-attachments/assets/980e9d5a-8a53-4d85-89eb-4ccb6e121183)
+
+### How the website should look like
+![Uploading Capture.PNG…]()
+
 
 ### Dynamic Content ⚙️
 - 🍕 Products are dynamically loaded from JSON files, ensuring freshness (just like our pizzas!).
