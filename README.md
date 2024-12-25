@@ -7,7 +7,7 @@
 - 🔗 All website links work perfectly, leading to the correct pages.
 
 ### How the website should look like
-![Uploading Capture.PNG…]()
+<img width="657" alt="example website" src="https://github.com/user-attachments/assets/c423e7d9-0a86-4531-b8bc-394f8655c650" />
 
 
 ### Dynamic Content ⚙️
