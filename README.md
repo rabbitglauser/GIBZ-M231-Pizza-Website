@@ -44,12 +44,12 @@
 
 1. Fork it 🍴 or Clone it via:
    ```bash
-   git clone https://github.com/your-username/tonys-pizza-factory.git
+   git clone https://github.com/yourusername/GIBZ-Pizza-Website.git
    ```
 
 2. Navigate to the project folder:
    ```bash
-   cd tonys-pizza-factory
+   cd GIBZ-Pizza-Websit
    ```
 
 3. Open it in your favorite editor (e.g., VSCode):
