@@ -53,13 +53,12 @@ header {
 .font-tittle {
     font-weight: bold;
     font-size: 60px;
-    padding-bottom: 20px;
 }
 
 h1 {
     font-size: 24px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 form {

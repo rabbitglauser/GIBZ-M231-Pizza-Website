@@ -20,56 +20,8 @@
 <main>
     <div class="menu-container">
         <h1 class="menu-title">Salad</h1>
-        <div class="salad-menu">
-            <div class="salad-item">
-                <img src="./assets/images/salad/green-salad-tomatoes-img.jpg" alt="Green salad with tomato">
-                <h3>Green salad with tomato</h3>
-                <p>Iceberg lettuce, tomatoes</p>
-                <div class="order">
-                    <select>
-                        <option>Italian dressing</option>
-                    </select>
-                    <span>$4</span>
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-            </div>
-            <div class="salad-item">
-                <img src="./assets/images/salad/Tomato-salad-with-mozerella-img.jpg" alt="Tomato salad with mozzarella">
-                <h3>Tomato salad with mozzarella</h3>
-                <p>Tomatoes, mozzarella</p>
-                <div class="order">
-                    <select>
-                        <option>Italian dressing</option>
-                    </select>
-                    <span>$5</span>
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-            </div>
-            <div class="salad-item">
-                <img src="./assets/images/salad/green-salad-with-eggs-img.jpg" alt="Field salad with egg">
-                <h3>Field salad with egg</h3>
-                <p>Field salad, egg</p>
-                <div class="order">
-                    <select>
-                        <option>Italian dressing</option>
-                    </select>
-                    <span>$4</span>
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-            </div>
-            <div class="salad-item">
-                <img src="./assets/images/salad/rocket-with-Parmesan-img.png" alt="Rocket with Parmesan">
-                <h3>Rocket with Parmesan</h3>
-                <p>Rocket, parmesan</p>
-                <div class="order">
-                    <select>
-                        <option>Italian dressing</option>
-                    </select>
-                    <span>$5</span>
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-            </div>
-        </div>
+        <!-- The salad menu container where the items will be dynamically loaded -->
+        <div id="salad-menu" class="salad-menu"></div>
     </div>
 </main>
 
@@ -93,6 +45,7 @@
         Chicago, IL 60614, USA
     </div>
 </footer>
+<script src="./assets/js/salad-js/loadProductSalad.js"></script>
 </body>
 </html>
 
