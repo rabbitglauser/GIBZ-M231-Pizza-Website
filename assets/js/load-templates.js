@@ -21,6 +21,6 @@ function loadTemplate(placeholderId, filePath) {
 
 // Load templates when the page loads
 document.addEventListener("DOMContentLoaded", function () {
-    loadTemplate("header-placeholder", "./assets/templates/header.html");
-    loadTemplate("footer-placeholder", "./assets/templates/footer.html");
+    loadTemplate("header-placeholder", "./assets/header.htm");
+    loadTemplate("footer-placeholder", "./assets/footer.htm");
 });

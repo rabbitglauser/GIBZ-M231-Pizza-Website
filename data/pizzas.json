@@ -1,49 +1,49 @@
 [
   {
     "name": "Piccante",
-    "image": "./assets/images/pizza/Piccante-img.jpg",
+    "image": "./assets/images/categories/pizza/picante.jpg",
     "description": "Tomato, mozzarella, spicy salami, chilies, oregano",
     "price": 16
   },
   {
     "name": "Giardino",
-    "image": "./assets/images/pizza/Giardino-img.jpg",
+    "image": "./assets/images/categories/pizza/giardino.jpg",
     "description": "Tomato, mozzarella, artichokes, fresh mushrooms",
     "price": 14
   },
   {
     "name": "Prosciutto e funghi",
-    "image": "./assets/images/pizza/Prosciutto-img.jpg",
+    "image": "./assets/images/categories/pizza/prosciutto.jpg",
     "description": "Tomato, mozzarella, ham, fresh mushrooms, oregano",
     "price": 15
   },
   {
     "name": "Quattro formaggi",
-    "image": "./assets/images/pizza/quattro-formaggi-img.jpg",
+    "image": "./assets/images/categories/pizza/quattro-formaggi.jpg",
     "description": "Tomato, mozzarella, parmesan, gorgonzola (blue cheese)",
     "price": 13
   },
   {
     "name": "Quattro stagioni",
-    "image": "./assets/images/pizza/quattro-stagioni-img.jpg",
+    "image": "./assets/images/categories/pizza/quattro-stagioni.jpg",
     "description": "Tomato, mozzarella, artichokes, ham, mushrooms",
     "price": 17
   },
   {
     "name": "Stromboli",
-    "image": "./assets/images/pizza/Stromboli-img.jpg",
+    "image": "./assets/images/categories/pizza/stromboli.jpg",
     "description": "Tomato, mozzarella, fresh chilies, olives, oregano",
     "price": 12
   },
   {
     "name": "Verde",
-    "image": "./assets/images/pizza/verde-img.jpg",
+    "image": "./assets/images/categories/pizza/verde.jpg",
     "description": "Tomato, mozzarella, broccoli, spinach, oregano",
     "price": 13
   },
   {
     "name": "Rustica",
-    "image": "./assets/images/pizza/Rustica-pizza.jpg",
+    "image": "./assets/images/categories/pizza/rustica.jpg",
     "description": "Tomato, mozzarella, ham, bacon, onions, garlic, oregano",
     "price": 15
   }

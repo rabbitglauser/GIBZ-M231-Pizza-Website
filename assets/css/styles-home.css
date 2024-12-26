@@ -1,12 +1,3 @@
-.content {
-    text-align: center;
-
-    & h1 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
-    }
-}
 
 .image-section {
     display: flex;
@@ -19,6 +10,16 @@
         border: 1px solid #ccc;
         height: auto; /* Ensure responsiveness */
         object-fit: contain; /* Prevent distortion */
+    }
+}
+
+.content {
+    text-align: center;
+
+    & h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
     }
 }
 

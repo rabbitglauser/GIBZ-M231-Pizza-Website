@@ -1,7 +1,7 @@
 [
   {
     "name": "Green salad with tomato",
-    "image": "./assets/images/salad/green-salad-tomatoes-img.jpg",
+    "image": "./assets/images/categories/salad/green-salad-tomatoes.jpg",
     "description": "Iceberg lettuce, tomatoes",
     "dressing": [
       "Italian dressing"
@@ -10,7 +10,7 @@
   },
   {
     "name": "Tomato salad with mozzarella",
-    "image": "./assets/images/salad/Tomato-salad-with-mozerella-img.jpg",
+    "image": "./assets/images/categories/salad/Tomato-salad-with-mozerella.jpg",
     "description": "Tomatoes, mozzarella",
     "dressing": [
       "Italian dressing"
@@ -19,7 +19,7 @@
   },
   {
     "name": "Field salad with egg",
-    "image": "./assets/images/salad/green-salad-with-eggs-img.jpg",
+    "image": "./assets/images/categories/salad/green-salad-with-eggs.jpg",
     "description": "Field salad, egg",
     "dressing": [
       "Italian dressing"
@@ -28,7 +28,7 @@
   },
   {
     "name": "Rocket with Parmesan",
-    "image": "./assets/images/salad/rocket-with-Parmesan-img.png",
+    "image": "./assets/images/categories/salad/rocket-with-Parmesan.png",
     "description": "Rocket, parmesan",
     "dressing": [
       "Italian dressing"
