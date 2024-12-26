@@ -24,11 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
               ${salad.dressing.map(d => `<option>${d}</option>`).join("")}
             </select>
             <span>$${salad.price}</span>
-            <i class="fas fa-shopping-cart"></i>
+            <button class="add-to-cart" data-id="${salad.id}" data-name="${salad.name}" data-price="${salad.price}">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
           </div>
         `;
 
                 saladMenuContainer.appendChild(saladDiv);
+            });
+
+            // Add event listener for "Add to Cart" buttons
+            saladMenuContainer.addEventListener("click", (event) => {
+                const button = event.target.closest(".add-to-cart");
+                if (button) {
+                    const id = button.getAttribute("data-id");
+                    const name = button.getAttribute("data-name");
+                    const price = parseFloat(button.getAttribute("data-price"));
+
+                    addToCart({id, name, price, quantity: 1});
+                }
             });
         })
         .catch(error => {

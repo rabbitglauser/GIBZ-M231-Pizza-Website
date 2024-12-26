@@ -76,6 +76,67 @@ main.content {
     margin-bottom: auto;
 }
 
+
+/*what i added for the shopping cart to work*/
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+#cart-icon {
+    position: relative;
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+}
+
+#cart-count {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
+#cart-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    display: none;
+    z-index: 1000;
+}
+
+#cart-dropdown ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.cart-total {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    text-align: right;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.dropdown.show {
+    display: block;
+}
+/*end of what i added*/
 @media (max-width: 1024px) {
     header {
         text-align: center;
