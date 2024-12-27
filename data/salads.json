@@ -1,38 +1,34 @@
 [
   {
+    "id": "salads-green",
     "name": "Green salad with tomato",
-    "image": "./assets/images/categories/salad/green-salad-tomatoes.jpg",
+    "image": "./assets/images/categories/salads/green-salad-tomatoes.jpg",
+    "price": 4,
     "description": "Iceberg lettuce, tomatoes",
-    "dressing": [
-      "Italian dressing"
-    ],
-    "price": 4
+    "options": ["Italian dressing", "French dressing", "Mayonnaise"]
   },
   {
+    "id": "salads-tomato",
     "name": "Tomato salad with mozzarella",
-    "image": "./assets/images/categories/salad/Tomato-salad-with-mozerella.jpg",
+    "image": "./assets/images/categories/salads/Tomato-salad-with-mozzarella.jpg",
+    "price": 5,
     "description": "Tomatoes, mozzarella",
-    "dressing": [
-      "Italian dressing"
-    ],
-    "price": 5
+    "options": [{"id": "italian","description": "Italian dressing", "additional-price": 1}, "French dressing", "Mayonnaise"]
   },
   {
+    "id": "salads-field",
     "name": "Field salad with egg",
-    "image": "./assets/images/categories/salad/green-salad-with-eggs.jpg",
+    "image": "./assets/images/categories/salads/green-salad-with-eggs.jpg",
+    "price": 4,
     "description": "Field salad, egg",
-    "dressing": [
-      "Italian dressing"
-    ],
-    "price": 4
+    "options": ["Ketchup", "Mayonnaise"]
   },
   {
+    "id": "salads-rocket",
     "name": "Rocket with Parmesan",
-    "image": "./assets/images/categories/salad/rocket-with-Parmesan.png",
+    "image": "./assets/images/categories/salads/rocket-with-parmesan.jpg",
+    "price": 5,
     "description": "Rocket, parmesan",
-    "dressing": [
-      "Italian dressing"
-    ],
-    "price": 5
+    "options": ["Italian dressing", "French dressing", "Mayonnaise"]
   }
 ]

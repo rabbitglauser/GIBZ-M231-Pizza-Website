@@ -1,0 +1,15 @@
+{
+  "image": "pizza.jpg",
+  "name": "Pizza",
+  "link": "/pizza.html"
+},
+{
+"image": "pizza.jpg",
+"name": "Salad",
+"link": "/pizza.html"
+},
+{
+"image": "pizza.jpg",
+"name": "Drinks",
+"link": "/drinks.html"
+}

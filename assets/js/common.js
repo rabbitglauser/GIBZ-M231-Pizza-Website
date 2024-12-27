@@ -1,27 +1,27 @@
-function loadData(id, url, renderFunction) {
-    const menuContainer = document.getElementById(id);
+function loadData(url, render) {
+    const itemsContainer = document.getElementById('items-container');
     fetch(url)
         .then(response => response.json())
-        .then(json => {
-
-            //TODO: some code here
-            renderFunction(json, menuContainer);
-
-            // TODO: some code here
+        .then(items => {
+            render(items, itemsContainer);
         })
         .catch(error => {
             console.error("Error loading data:", error);
-            menuContainer.innerHTML = `<p>Failed to load the data from ${url} Please try again later.</p>`;
+            itemsContainer.innerHTML = `<p>Failed to load the data from ${url} Please try again later.</p>`;
         });
 }
 
-function loadHtml(id, url, renderFunction) {
-    const menuContainer = document.getElementById(id);
-    fetch(url)
-        .then(response => response.text())
-        .then(text => renderFunction(text, menuContainer))
-        .catch(error => {
-            console.error("Error loading html text:", error);
-            menuContainer.innerHTML = `<p>Failed to load the html text from ${url}</p>`;
-        });
+// Add item to cart
+function addToCart(itemId) {
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingItem = cart.find(cartItem => cartItem.id === itemId);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({"id": itemId, "quantity": 1});
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    // updateCartUI();
 }
