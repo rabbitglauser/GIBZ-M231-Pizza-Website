@@ -10,18 +10,18 @@ const renderProducts = (products, productsContainer) => {
 
 const renderProduct = product => {
     const container = createCustomElement("div", "product", `<img src="${product.image}" alt="${product.description}">`)
-    container.append(renderName(product))
-    container.append(renderDescription(product));
+    container.append(renderDescription(product))
+    container.append(renderIngredients(product));
     container.append(renderDetails(product));
     return container;
 }
 
-const renderName = product => {
-    return createCustomElement("h3", null, product.name);
+const renderDescription = product => {
+    return createCustomElement("h3", "description", product.description);
 }
 
-const renderDescription = product => {
-    return ('description' in product) ? createCustomElement("div", "description", product.description) : '';
+const renderIngredients = product => {
+    return ('ingredients' in product) ? createCustomElement("div", "ingredients", product.ingredients) : '';
 }
 
 const renderDetails = product => {
@@ -53,9 +53,9 @@ const renderOptions = (product, detailsElement) => {
 }
 
 const renderPrice = product => {
-    const priceDiv = document.createElement("div");
+    const priceDiv = createCustomElement("div");
+    priceDiv.appendChild(createCustomElement("span", null, '$'));
     priceDiv.appendChild(createCustomElement("span", "amount", product.price));
-    priceDiv.appendChild(createCustomElement("span", null, ' CHF'));
     return priceDiv;
 }
 

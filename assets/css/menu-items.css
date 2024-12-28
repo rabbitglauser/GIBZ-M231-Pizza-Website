@@ -35,13 +35,13 @@
         border-radius: 10px;
     }
 
-    & h3 {
+    & h3.description {
         text-align: left;
         font-size: var(--font-small);
         margin: 1px 0;
     }
 
-    & div.description {
+    & div.ingredients {
         text-align: left;
         font-size: 0.9em;
         color: #555;

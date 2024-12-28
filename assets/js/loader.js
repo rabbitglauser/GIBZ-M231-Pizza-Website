@@ -1,10 +1,10 @@
-
-const loadSite = categoryName => {
+const loadCategoryPage = categoryName => {
     loadHtmlFragment("./assets/header.htm", "header-placeholder");
     loadHtmlFragment("./assets/footer.htm", "footer-placeholder");
-    if(categoryName) {
+    if (categoryName) {
         loadCategory(categoryName)
     }
+    setTimeout(() => updateCartUI(), 100);
 }
 
 const loadCategory = categoryName => {
@@ -15,7 +15,7 @@ function loadData(url, render) {
     const productsContainer = document.getElementById('products-container');
     fetch(url)
         .then(response => response.json())
-        .then(items => render(items, productsContainer))
+        .then(products => render(products, productsContainer))
         .catch(error => {
             productsContainer.innerHTML = `<p>Failed to load the data from ${url} Please try again later.</p>`;
         });
