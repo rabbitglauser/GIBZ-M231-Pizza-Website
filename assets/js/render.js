@@ -9,7 +9,7 @@ const renderProducts = (products, productsContainer) => {
 };
 
 const renderProduct = product => {
-    const container = createCustomElement("div", "item", `<img src="${product.image}" alt="${product.name}">`)
+    const container = createCustomElement("div", "product", `<img src="${product.image}" alt="${product.description}">`)
     container.append(renderName(product))
     container.append(renderDescription(product));
     container.append(renderDetails(product));
@@ -25,22 +25,23 @@ const renderDescription = product => {
 }
 
 const renderDetails = product => {
-    const orderElement = createCustomElement("div", "details");
-    orderElement.append(renderOptions(product));
-    orderElement.append(renderPrice(product));
-    orderElement.append(renderAddToCartButton(product));
-    return orderElement;
+    const detailsElement = createCustomElement("div", "details");
+    detailsElement.setAttribute("id", `${product.id}-details`);
+    detailsElement.append(renderOptions(product, detailsElement));
+    detailsElement.append(renderPrice(product));
+    detailsElement.append(renderAddToCartButton(product));
+    return detailsElement;
 }
 
-const renderOptions = product => {
+const renderOptions = (product, detailsElement) => {
     if ('options' in product) {
         const selectElement = createCustomElement("select");
         selectElement.setAttribute("id", product.id);
-        selectElement.onchange = () => handleProductOptionSelect(selectElement, product.id, product.price);
+        selectElement.onchange = () => handleSelectedProductOption(detailsElement, selectElement, product.price);
         product.options.forEach(option => {
             let description = `${option.description}`;
             if ('amount' in option && option.amount > 0) {
-                description += ` (+ ${option.amount})`;
+                description += ` (+${option.amount})`;
             }
             const optionElement = createCustomElement("option", null, description);
             optionElement.setAttribute("value", option.id);
@@ -60,19 +61,12 @@ const renderPrice = product => {
 
 const renderAddToCartButton = product => {
 
-    // TODO: change from using DOMParser to constructing it using dom nodes
+    //TODO: change from using DOMParser to constructing it using dom nodes
 
     const button =
-        `<button class="add-to-cart" onclick="addToCart('${product.id}')" >
+        `<button class="add-to-cart" onclick="handleAddToCart('${product.id}')" >
             <i class="fas fa-shopping-cart"></i>
          </button>`;
     const element = new DOMParser().parseFromString(button, "text/html").body.firstChild;
     return element;
-}
-
-const handleProductOptionSelect = (sourceSelect, productId, price) => {
-
-    // TODO: handle this change event to update the price of the product in the UI
-
-    console.log(`The value selected was [${sourceSelect.value}] for product [${productId}] original price [${price}]`);
 }

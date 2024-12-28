@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <script src="assets/js/common.js"></script>
+    <script src="assets/js/handlers.js"></script>
+    <script src="assets/js/loader.js"></script>
     <script src="assets/js/render.js"></script>
     <link rel="stylesheet" href="assets/css/site-layout.css">
     <link rel="stylesheet" href="assets/css/menu-items.css">
@@ -12,16 +14,15 @@
 <div id="header-placeholder"></div>
 <main class="content">
     <div class="content-container">
-        <h1>Pizza Menu</h1>
-        <div id="items-container"></div>
+        <h1>Pizzas</h1>
+        <div id="products-container"></div>
     </div>
 </main>
 <div id="footer-placeholder"></div>
+{
 <script>
-    const url = './data/pizzas.json';
-    document.addEventListener("DOMContentLoaded", () => loadData(url, renderProducts));
+    document.addEventListener("DOMContentLoaded", () => loadSite('pizzas'));
 </script>
-<script src="assets/js/load-templates.js"></script>
 </body>
 </html>
 

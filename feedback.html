@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/feedback.css">
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/handlers.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/render.js"></script>
     <link rel="stylesheet" href="assets/css/site-layout.css">
+    <link rel="stylesheet" href="assets/css/menu-items.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/feedback.css">
     <title>Tony's Pizza Factory</title>
 </head>
 <body>
@@ -24,11 +28,11 @@
             </div>
 
             <div class="row">
-                <label>What do you think about our prizes?</label>
+                <label>What do you think about our prices?</label>
                 <div class="options">
-                    <label><input type="radio" name="prizes" value="fair"> Fair</label>
-                    <label><input type="radio" name="prizes" value="okay"> Okay</label>
-                    <label><input type="radio" name="prizes" value="expensive"> Expensive</label>
+                    <label><input type="radio" name="prices" value="fair"> Fair</label>
+                    <label><input type="radio" name="prices" value="okay"> Okay</label>
+                    <label><input type="radio" name="prices" value="expensive"> Expensive</label>
                 </div>
             </div>
 
@@ -55,8 +59,9 @@
 </main>
 
 <div id="footer-placeholder"></div>
-
-<script src="assets/js/load-templates.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => loadSite());
+</script>
 </body>
 </html>
 

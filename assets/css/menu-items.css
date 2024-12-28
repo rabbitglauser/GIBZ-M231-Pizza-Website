@@ -9,7 +9,7 @@
     }
 }
 
-#items-container {
+#products-container {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -19,8 +19,8 @@
     margin-right: auto;
 }
 
-.item {
-    width: 250px;/*before it was at 250px*/
+.product {
+    width: 250px;
     text-align: center;
     border: 2px solid var(--secondary-color);
     border-radius: 5px;

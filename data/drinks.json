@@ -1,10 +1,10 @@
 [
   {
     "id": "drinks-coke",
-    "name": "Coke",
+    "description": "Coke",
     "image": "./assets/images/categories/drinks/coke.jpg",
     "price": 2,
-    "description": "hello andre",
+    "ingredients": "hello andre",
     "options": [
       {
         "id": "50cl",
@@ -25,7 +25,7 @@
   },
   {
     "id": "drinks-fanta",
-    "name": "Fanta",
+    "description": "Fanta",
     "image": "./assets/images/categories/drinks/fanta.jpg",
     "price": 2,
     "options": [
@@ -48,7 +48,7 @@
   },
   {
     "id": "drinks-pepsi",
-    "name": "Pepsi",
+    "description": "Pepsi",
     "image": "./assets/images/categories/drinks/pepsi.jpg",
     "price": 2,
     "options": [
@@ -71,7 +71,7 @@
   },
   {
     "id": "drinks-redbull",
-    "name": "Red Bull",
+    "description": "Red Bull",
     "image": "./assets/images/categories/drinks/red-bull.jpg",
     "price": 3,
     "options": [
