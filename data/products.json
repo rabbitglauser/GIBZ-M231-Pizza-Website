@@ -1,0 +1,126 @@
+[
+  {
+    "category": "salads",
+    "products": [
+      {
+        "id": "salads-green",
+        "name": "Green salad with tomato",
+        "image": "./assets/images/categories/salads/green-salad-tomatoes.jpg",
+        "price": 4,
+        "description": "Iceberg lettuce, tomatoes",
+        "options": [
+          {
+            "id": "none",
+            "description": "No dressing",
+            "amount": 0
+          },
+          {
+            "id": "italian",
+            "description": "Italian dressing",
+            "amount": 0.5
+          },
+          {
+            "id": "french",
+            "description": "French dressing",
+            "amount": 0.75
+          },
+          {
+            "id": "mayonnaise",
+            "description": "Mayonnaise",
+            "amount": 0.5
+          }
+        ]
+      },
+      {
+        "id": "salads-tomato",
+        "name": "Tomato salad with mozzarella",
+        "image": "./assets/images/categories/salads/Tomato-salad-with-mozzarella.jpg",
+        "price": 5,
+        "description": "Tomatoes, mozzarella",
+        "options": [
+          {
+            "id": "none",
+            "description": "No dressing",
+            "amount": 0
+          },
+          {
+            "id": "italian",
+            "description": "Italian dressing",
+            "amount": 0.5
+          },
+          {
+            "id": "french",
+            "description": "French dressing",
+            "amount": 0.75
+          },
+          {
+            "id": "mayonnaise",
+            "description": "Mayonnaise",
+            "amount": 0.5
+          }
+        ]
+      },
+      {
+        "id": "salads-field",
+        "name": "Field salad with egg",
+        "image": "./assets/images/categories/salads/green-salad-with-eggs.jpg",
+        "price": 4,
+        "description": "Field salad, egg",
+        "options": [
+          {
+            "id": "none",
+            "description": "No dressing",
+            "amount": 0
+          },
+          {
+            "id": "ketchup",
+            "description": "Ketchup",
+            "amount": 0.25
+          },
+          {
+            "id": "mayonnaise",
+            "description": "Mayonnaise",
+            "amount": 0.5
+          }
+        ]
+      },
+      {
+        "id": "salads-rocket",
+        "name": "Rocket with Parmesan",
+        "image": "./assets/images/categories/salads/rocket-with-parmesan.jpg",
+        "price": 5,
+        "description": "Rocket, parmesan",
+        "options": [
+          {
+            "id": "none",
+            "description": "No dressing",
+            "amount": 0
+          },
+          {
+            "id": "italian",
+            "description": "Italian dressing",
+            "amount": 0.5
+          },
+          {
+            "id": "french",
+            "description": "French dressing",
+            "amount": 0.75
+          },
+          {
+            "id": "mayonnaise",
+            "description": "Mayonnaise",
+            "amount": 0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "drinks",
+    "products": []
+  },
+  {
+    "category": "pizzas",
+    "products": []
+  }
+]

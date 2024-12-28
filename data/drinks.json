@@ -5,27 +5,86 @@
     "image": "./assets/images/categories/drinks/coke.jpg",
     "price": 2,
     "description": "hello andre",
-    "options": ["50cl", "75cl", "1l"]
+    "options": [
+      {
+        "id": "50cl",
+        "description": "50cl",
+        "amount": 0.25
+      },
+      {
+        "id": "75cl",
+        "description": "75cl",
+        "amount": 1
+      },
+      {
+        "id": "1L",
+        "description": "1L",
+        "amount": 2
+      }
+    ]
   },
   {
     "id": "drinks-fanta",
     "name": "Fanta",
     "image": "./assets/images/categories/drinks/fanta.jpg",
     "price": 2,
-    "options": ["50cl", "75cl", "1l"]
+    "options": [
+      {
+        "id": "50cl",
+        "description": "50cl",
+        "amount": 0.25
+      },
+      {
+        "id": "75cl",
+        "description": "75cl",
+        "amount": 1
+      },
+      {
+        "id": "1L",
+        "description": "1L",
+        "amount": 2
+      }
+    ]
   },
   {
     "id": "drinks-pepsi",
     "name": "Pepsi",
     "image": "./assets/images/categories/drinks/pepsi.jpg",
     "price": 2,
-    "options": ["50cl", "75cl", "1l"]
+    "options": [
+      {
+        "id": "50cl",
+        "description": "50cl",
+        "amount": 0.25
+      },
+      {
+        "id": "75cl",
+        "description": "75cl",
+        "amount": 1
+      },
+      {
+        "id": "1L",
+        "description": "1L",
+        "amount": 2
+      }
+    ]
   },
   {
     "id": "drinks-redbull",
     "name": "Red Bull",
     "image": "./assets/images/categories/drinks/red-bull.jpg",
     "price": 3,
-    "options": ["50cl", "75cl"]
+    "options": [
+      {
+        "id": "50cl",
+        "description": "50cl",
+        "amount": 0.25
+      },
+      {
+        "id": "75cl",
+        "description": "75cl",
+        "amount": 1
+      }
+    ]
   }
 ]

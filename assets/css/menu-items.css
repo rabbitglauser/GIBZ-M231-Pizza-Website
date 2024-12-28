@@ -11,15 +11,18 @@
 
 #items-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
+    max-width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .item {
-    width: 200px;
+    width: 250px;/*before it was at 250px*/
     text-align: center;
-    border: 1px solid #ddd;
+    border: 2px solid var(--secondary-color);
     border-radius: 5px;
     padding: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
@@ -44,14 +47,14 @@
         color: #555;
     }
 
-    & .order {
+    & .details {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 10px;
 
         & select {
-            width: 120px;
+            width: 140px;
         }
 
         & span {

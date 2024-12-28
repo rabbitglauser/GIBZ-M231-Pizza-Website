@@ -1,57 +1,78 @@
-
-const renderHome = (items, itemContainer) => {
+const renderHome = (products, productContainer) => {
     //TODO: dynamically render the home menu items
 }
 
-const renderItems = (items, itemsContainer) => {
-    items.forEach(item => {
-        itemsContainer.appendChild(renderItem(item, itemsContainer));
+const renderProducts = (products, productsContainer) => {
+    products.forEach(product => {
+        productsContainer.appendChild(renderProduct(product, productsContainer));
     });
 };
 
-const renderItem = (item) => {
-    const container = document.createElement("div");
-    container.classList.add("item");
-    container.innerHTML = `<img src="${item.image}" alt="${item.name}">`;
-    container.append(renderName(item))
-    container.append(renderDescription(item));
-    container.append(renderOrder(item));
+const renderProduct = product => {
+    const container = createCustomElement("div", "item", `<img src="${product.image}" alt="${product.name}">`)
+    container.append(renderName(product))
+    container.append(renderDescription(product));
+    container.append(renderDetails(product));
     return container;
 }
 
-const renderDescription = (item) => {
-    if ('description' in item) {
-        const descriptionElement = document.createElement("div");
-        descriptionElement.classList.add("description");
-        descriptionElement.innerText = item.description;
-        return descriptionElement;
-    }
-    return '';
+const renderName = product => {
+    return createCustomElement("h3", null, product.name);
 }
 
-const renderName = (item) => {
-    const nameElement = document.createElement("h3");
-    nameElement.innerText = item.name;
-    return nameElement;
+const renderDescription = product => {
+    return ('description' in product) ? createCustomElement("div", "description", product.description) : '';
 }
 
-function renderOrder(item) {
-    const orderElement = document.createElement("div");
-    orderElement.classList.add("order");
+const renderDetails = product => {
+    const orderElement = createCustomElement("div", "details");
+    orderElement.append(renderOptions(product));
+    orderElement.append(renderPrice(product));
+    orderElement.append(renderAddToCartButton(product));
+    return orderElement;
+}
 
-    if ('options' in item) {
-        const select = `<select>
-            ${item.options.map(value => `<option>${value}</option>`).join("")}
-        </select>`;
-        orderElement.appendChild(new DOMParser().parseFromString(select, "text/html").body.firstChild);
+const renderOptions = product => {
+    if ('options' in product) {
+        const selectElement = createCustomElement("select");
+        selectElement.setAttribute("id", product.id);
+        selectElement.onchange = () => handleProductOptionSelect(selectElement, product.id, product.price);
+        product.options.forEach(option => {
+            let description = `${option.description}`;
+            if ('amount' in option && option.amount > 0) {
+                description += ` (+ ${option.amount})`;
+            }
+            const optionElement = createCustomElement("option", null, description);
+            optionElement.setAttribute("value", option.id);
+            selectElement.appendChild(optionElement);
+        });
+        return selectElement;
     }
-    orderElement.appendChild(document.createElement("span")).innerHTML = `$${item.price}`;
+    return ''
+}
+
+const renderPrice = product => {
+    const priceDiv = document.createElement("div");
+    priceDiv.appendChild(createCustomElement("span", "amount", product.price));
+    priceDiv.appendChild(createCustomElement("span", null, ' CHF'));
+    return priceDiv;
+}
+
+const renderAddToCartButton = product => {
+
+    // TODO: change from using DOMParser to constructing it using dom nodes
 
     const button =
-        `<button class="add-to-cart" onclick="addToCart('${item.id}')" >
+        `<button class="add-to-cart" onclick="addToCart('${product.id}')" >
             <i class="fas fa-shopping-cart"></i>
          </button>`;
-    orderElement.appendChild(new DOMParser().parseFromString(button, "text/html").body.firstChild);
+    const element = new DOMParser().parseFromString(button, "text/html").body.firstChild;
+    return element;
+}
 
-    return orderElement;
+const handleProductOptionSelect = (sourceSelect, productId, price) => {
+
+    // TODO: handle this change event to update the price of the product in the UI
+
+    console.log(`The value selected was [${sourceSelect.value}] for product [${productId}] original price [${price}]`);
 }
