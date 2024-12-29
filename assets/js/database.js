@@ -6,7 +6,7 @@ const database = {
 
     loadDatabase: function () {
         if (!database.loaded) {
-             return fetch('./data/products.json')
+            return fetch('./data/products.json')
                 .then(response => response.json())
                 .then(json => database.categories = json.categories)
                 .then(() => database.loaded = true)
@@ -17,16 +17,13 @@ const database = {
         return Promise.resolve();
     },
 
-    getCategory: function(categoryId) {
+    getCategory: function (categoryId) {
         return database.getCategories().find(category => {
-
-
-
-      return      category.id === categoryId;
+            return category.id === categoryId;
         });
     },
 
-    getCategories: function() {
+    getCategories: function () {
         return database.categories;
     },
 
