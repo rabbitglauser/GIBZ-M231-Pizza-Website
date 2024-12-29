@@ -7,7 +7,7 @@ const renderFeedback = () => {
 const renderHome = (contentContainer) => {
 
     // render the header
-    contentContainer.appendChild(createCustomElement("h1", null, "Welcome to Tony's Pizza Factory"));
+    contentContainer.appendChild(createCustomElement("h1", null, `Welcome to ${companyName}`));
     document.title = `${companyName} - home`;
 
     // render the splash screen image
