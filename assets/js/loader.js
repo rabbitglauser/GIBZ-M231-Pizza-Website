@@ -3,6 +3,7 @@ const loadPage = categoryName => {
     Promise.all([databasePromise]).then(() => {
         updateCartUI();
         loadProducts(categoryName);
+        document.getElementById("place-order").onclick = () => placeOrder();
     });
 }
 
