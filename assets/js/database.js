@@ -1,42 +1,43 @@
 const database = {
 
-    // TODO: add ALL the products to the products.json file
-
     // This is the database of categories and products
+    "loaded": false,
     "categories": [],
 
     loadDatabase: function () {
-        // TODO: load the database in to memory and store it in the database object
-
-        // fetch the products.json file as Json for categories and products
-        const categories = [];
-        // store it in the database memory
-        this.storeCategories(categories);
+        if (!database.loaded) {
+             return fetch('./data/products.json')
+                .then(response => response.json())
+                .then(json => database.categories = json.categories)
+                .then(() => database.loaded = true)
+                .catch(error => {
+                    throw new Error('Failed to fetch the database: ' + error);
+                });
+        }
+        return Promise.resolve();
     },
 
-    storeCategories: function (categories) {
-        this['categories'] = categories;
+    getCategory: function(categoryId) {
+        return database.getCategories().find(category => {
+
+
+
+      return      category.id === categoryId;
+        });
     },
 
-    calculatePrice: function (cartId) {
-        // TODO: finish this
-        // split the id into two/three parts
-        // get the product from the DB (call getProduct)
-        // add the price to the option price (if applicable)
-        // return the price
-        return 14;
+    getCategories: function() {
+        return database.categories;
     },
 
-    getProduct: function (category, id, optionId) {
-        // TODO: finish this
-        // get all the products from getProducts
-        // find the one you need
-        // return the product details
+    getProducts: function (categoryId) {
+        const category = database.getCategory(categoryId);
+        return (category && 'products' in category) ? category.products : [];
     },
 
-    getProducts: function (category) {
-        // TODO: finish this
-        // look in the DB memory for the product category
-        // return the array of products for that category
+    getProduct: function (productId) {
+        const categoryId = productId.split('-')[0];
+        const products = database.getProducts(categoryId);
+        return products.find(product => product.id === productId);
     }
 }

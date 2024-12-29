@@ -4,21 +4,20 @@
     "description": "Coke",
     "image": "./assets/images/categories/drinks/coke.jpg",
     "price": 2,
-    "ingredients": "hello andre",
     "options": [
       {
         "id": "50cl",
-        "description": "50cl",
-        "amount": 0.25
+        "description": "50 cl",
+        "amount": 0
       },
       {
         "id": "75cl",
-        "description": "75cl",
+        "description": "75 cl",
         "amount": 1
       },
       {
         "id": "1L",
-        "description": "1L",
+        "description": "1 Litre",
         "amount": 2
       }
     ]
@@ -31,17 +30,17 @@
     "options": [
       {
         "id": "50cl",
-        "description": "50cl",
-        "amount": 0.25
+        "description": "50 cl",
+        "amount": 0
       },
       {
         "id": "75cl",
-        "description": "75cl",
+        "description": "75 cl",
         "amount": 1
       },
       {
         "id": "1L",
-        "description": "1L",
+        "description": "1 Litre",
         "amount": 2
       }
     ]
@@ -54,17 +53,17 @@
     "options": [
       {
         "id": "50cl",
-        "description": "50cl",
-        "amount": 0.25
+        "description": "50 cl",
+        "amount": 0
       },
       {
         "id": "75cl",
-        "description": "75cl",
+        "description": "75 cl",
         "amount": 1
       },
       {
         "id": "1L",
-        "description": "1L",
+        "description": "1 Litre",
         "amount": 2
       }
     ]
@@ -77,12 +76,12 @@
     "options": [
       {
         "id": "50cl",
-        "description": "50cl",
-        "amount": 0.25
+        "description": "50 cl",
+        "amount": 0
       },
       {
         "id": "75cl",
-        "description": "75cl",
+        "description": "75 cl",
         "amount": 1
       }
     ]

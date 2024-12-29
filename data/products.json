@@ -1,126 +1,276 @@
-[
-  {
-    "category": "salads",
-    "products": [
-      {
-        "id": "salads-green",
-        "description": "Green salad with tomato",
-        "image": "./assets/images/categories/salads/green-salad-tomatoes.jpg",
-        "price": 4,
-        "ingredients": "Iceberg lettuce, tomatoes",
-        "options": [
-          {
-            "id": "none",
-            "description": "No dressing",
-            "amount": 0
-          },
-          {
-            "id": "italian",
-            "description": "Italian dressing",
-            "amount": 0.5
-          },
-          {
-            "id": "french",
-            "description": "French dressing",
-            "amount": 0.75
-          },
-          {
-            "id": "mayonnaise",
-            "description": "Mayonnaise",
-            "amount": 0.5
-          }
-        ]
-      },
-      {
-        "id": "salads-tomato",
-        "description": "Tomato salad with mozzarella",
-        "image": "./assets/images/categories/salads/Tomato-salad-with-mozzarella.jpg",
-        "price": 5,
-        "ingredients": "Tomatoes, mozzarella",
-        "options": [
-          {
-            "id": "none",
-            "description": "No dressing",
-            "amount": 0
-          },
-          {
-            "id": "italian",
-            "description": "Italian dressing",
-            "amount": 0.5
-          },
-          {
-            "id": "french",
-            "description": "French dressing",
-            "amount": 0.75
-          },
-          {
-            "id": "mayonnaise",
-            "description": "Mayonnaise",
-            "amount": 0.5
-          }
-        ]
-      },
-      {
-        "id": "salads-field",
-        "description": "Field salad with egg",
-        "image": "./assets/images/categories/salads/green-salad-with-eggs.jpg",
-        "price": 4,
-        "ingredients": "Field salad, egg",
-        "options": [
-          {
-            "id": "none",
-            "description": "No dressing",
-            "amount": 0
-          },
-          {
-            "id": "ketchup",
-            "description": "Ketchup",
-            "amount": 0.25
-          },
-          {
-            "id": "mayonnaise",
-            "description": "Mayonnaise",
-            "amount": 0.5
-          }
-        ]
-      },
-      {
-        "id": "salads-rocket",
-        "description": "Rocket with Parmesan",
-        "image": "./assets/images/categories/salads/rocket-with-parmesan.jpg",
-        "price": 5,
-        "ingredients": "Rocket, parmesan",
-        "options": [
-          {
-            "id": "none",
-            "description": "No dressing",
-            "amount": 0
-          },
-          {
-            "id": "italian",
-            "description": "Italian dressing",
-            "amount": 0.5
-          },
-          {
-            "id": "french",
-            "description": "French dressing",
-            "amount": 0.75
-          },
-          {
-            "id": "mayonnaise",
-            "description": "Mayonnaise",
-            "amount": 0.5
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "category": "drinks",
-    "products": []
-  },
-  {
-    "category": "pizzas",
-    "products": []
-  }
-]
+{
+  "categories": [
+    {
+      "id": "salads",
+      "description": "Salads",
+      "products": [
+        {
+          "id": "salads-green",
+          "description": "Green salad with tomato",
+          "image": "./assets/images/categories/salads/green-salad-tomatoes.jpg",
+          "amount": 4,
+          "ingredients": "Iceberg lettuce, tomatoes",
+          "options": [
+            {
+              "id": "none",
+              "description": "No dressing",
+              "amount": 0
+            },
+            {
+              "id": "italian",
+              "description": "Italian dressing",
+              "amount": 0.5
+            },
+            {
+              "id": "french",
+              "description": "French dressing",
+              "amount": 0.75
+            },
+            {
+              "id": "mayonnaise",
+              "description": "Mayonnaise",
+              "amount": 0.5
+            }
+          ]
+        },
+        {
+          "id": "salads-tomato",
+          "description": "Tomato salad with mozzarella",
+          "image": "./assets/images/categories/salads/Tomato-salad-with-mozzarella.jpg",
+          "amount": 5,
+          "ingredients": "Tomatoes, mozzarella",
+          "options": [
+            {
+              "id": "none",
+              "description": "No dressing",
+              "amount": 0
+            },
+            {
+              "id": "italian",
+              "description": "Italian dressing",
+              "amount": 0.5
+            },
+            {
+              "id": "french",
+              "description": "French dressing",
+              "amount": 0.75
+            },
+            {
+              "id": "mayonnaise",
+              "description": "Mayonnaise",
+              "amount": 0.5
+            }
+          ]
+        },
+        {
+          "id": "salads-field",
+          "description": "Field salad with egg",
+          "image": "./assets/images/categories/salads/green-salad-with-eggs.jpg",
+          "amount": 4,
+          "ingredients": "Field salad, egg",
+          "options": [
+            {
+              "id": "none",
+              "description": "No dressing",
+              "amount": 0
+            },
+            {
+              "id": "ketchup",
+              "description": "Ketchup",
+              "amount": 0.25
+            },
+            {
+              "id": "mayonnaise",
+              "description": "Mayonnaise",
+              "amount": 0.5
+            }
+          ]
+        },
+        {
+          "id": "salads-rocket",
+          "description": "Rocket with Parmesan",
+          "image": "./assets/images/categories/salads/rocket-with-parmesan.jpg",
+          "amount": 5,
+          "ingredients": "Rocket, parmesan",
+          "options": [
+            {
+              "id": "none",
+              "description": "No dressing",
+              "amount": 0
+            },
+            {
+              "id": "italian",
+              "description": "Italian dressing",
+              "amount": 0.5
+            },
+            {
+              "id": "french",
+              "description": "French dressing",
+              "amount": 0.75
+            },
+            {
+              "id": "mayonnaise",
+              "description": "Mayonnaise",
+              "amount": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "description": "Soft Drinks",
+      "products": [
+        {
+          "id": "drinks-coke",
+          "description": "Coke",
+          "image": "./assets/images/categories/drinks/coke.jpg",
+          "amount": 2,
+          "options": [
+            {
+              "id": "50cl",
+              "description": "50 cl",
+              "amount": 0
+            },
+            {
+              "id": "75cl",
+              "description": "75 cl",
+              "amount": 1
+            },
+            {
+              "id": "1L",
+              "description": "1 Litre",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "id": "drinks-fanta",
+          "description": "Fanta",
+          "image": "./assets/images/categories/drinks/fanta.jpg",
+          "amount": 2,
+          "options": [
+            {
+              "id": "50cl",
+              "description": "50 cl",
+              "amount": 0
+            },
+            {
+              "id": "75cl",
+              "description": "75 cl",
+              "amount": 1
+            },
+            {
+              "id": "1L",
+              "description": "1 Litre",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "id": "drinks-pepsi",
+          "description": "Pepsi",
+          "image": "./assets/images/categories/drinks/pepsi.jpg",
+          "amount": 2,
+          "options": [
+            {
+              "id": "50cl",
+              "description": "50 cl",
+              "amount": 0
+            },
+            {
+              "id": "75cl",
+              "description": "75 cl",
+              "amount": 1
+            },
+            {
+              "id": "1L",
+              "description": "1 Litre",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "id": "drinks-redbull",
+          "description": "Red Bull",
+          "image": "./assets/images/categories/drinks/red-bull.jpg",
+          "amount": 3,
+          "options": [
+            {
+              "id": "50cl",
+              "description": "50 cl",
+              "amount": 0
+            },
+            {
+              "id": "75cl",
+              "description": "75 cl",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pizzas",
+      "description": "Pizzas",
+      "products": [
+        {
+          "id": "pizzas-picante",
+          "description": "Piccante",
+          "image": "./assets/images/categories/pizzas/picante.jpg",
+          "amount": 16,
+          "ingredients": "Tomato, mozzarella, spicy salami, chilies, oregano"
+        },
+        {
+          "id": "pizzas-giardino",
+          "description": "Giardino",
+          "image": "./assets/images/categories/pizzas/giardino.jpg",
+          "amount": 14,
+          "ingredients": "Tomato, mozzarella, artichokes, fresh mushrooms"
+        },
+        {
+          "id": "pizzas-prosciutto",
+          "description": "Prosciutto e funghi",
+          "image": "./assets/images/categories/pizzas/prosciutto.jpg",
+          "amount": 15,
+          "ingredients": "Tomato, mozzarella, ham, fresh mushrooms, oregano"
+        },
+        {
+          "id": "pizzas-quattro",
+          "description": "Quattro formaggi",
+          "image": "./assets/images/categories/pizzas/quattro-formaggi.jpg",
+          "amount": 13,
+          "ingredients": "Tomato, mozzarella, parmesan, gorgonzola (blue cheese)"
+        },
+        {
+          "id": "pizzas-stagioni",
+          "description": "Quattro stagioni",
+          "image": "./assets/images/categories/pizzas/quattro-stagioni.jpg",
+          "amount": 17,
+          "ingredients": "Tomato, mozzarella, artichokes, ham, mushrooms"
+        },
+        {
+          "id": "pizzas-stromboli",
+          "description": "Stromboli",
+          "image": "./assets/images/categories/pizzas/stromboli.jpg",
+          "amount": 12,
+          "ingredients": "Tomato, mozzarella, fresh chilies, olives, oregano"
+        },
+        {
+          "id": "pizzas-verde",
+          "description": "Verde",
+          "image": "./assets/images/categories/pizzas/verde.jpg",
+          "amount": 13,
+          "ingredients": "Tomato, mozzarella, broccoli, spinach, oregano"
+        },
+        {
+          "id": "pizzas-rustica",
+          "description": "Rustica",
+          "image": "./assets/images/categories/pizzas/rustica.jpg",
+          "amount": 15,
+          "ingredients": "Tomato, mozzarella, ham, bacon, onions, garlic, oregano"
+        }
+      ]
+    }
+  ]
+}

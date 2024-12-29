@@ -6,7 +6,7 @@
  * @return {void} Does not return a value.
  */
 function addToCart(searchProductId) {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cart = getCart();
     const existingItem = cart.find(item => item.id === searchProductId);
 
     let quantity = existingItem ? existingItem.quantity + 1 : 1;
@@ -15,7 +15,7 @@ function addToCart(searchProductId) {
     } else {
         cart.push({"id": searchProductId, "quantity": quantity});
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
+    saveCart(cart);
 }
 
 /**
@@ -42,7 +42,7 @@ function calculateCartId(productId) {
  */
 function updateCartUI() {
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cart = getCart();
     const cartItems = document.getElementById("cart-items");
     const cartTotal = document.getElementById("cart-total");
     const cartCount = document.getElementById("cart-count");
@@ -55,19 +55,59 @@ function updateCartUI() {
     let total = 0;
     let numItems = 0;
     cart.forEach(cartItem => {
-        const price = database.calculatePrice(cartItem.id);
-        const li = createCustomElement("li");
-
-        // TODO : get the actual description of the product from database. Not just the cartId
-        li.textContent = `${cartItem.id} - $${price} x ${cartItem.quantity}`;
-        cartItems.appendChild(li);
-
-        total += price * cartItem.quantity;
+        const lineItemAmount = calculateAmountIncludingOption(cartItem.id);
+        const lineItemDescription = calculateLineItemDescription(cartItem, lineItemAmount);
+        cartItems.appendChild(createCustomElement("li", "line-item", lineItemDescription));
+        total += lineItemAmount * cartItem.quantity;
         numItems += cartItem.quantity
     });
 
     cartTotal.textContent = `$${total.toFixed(2)}`;
     cartCount.textContent = numItems; // cart.length;
+}
+
+function calculateLineItemDescription(cartItem, lineItemAmount) {
+    const [productId, optionId] = splitCartId(cartItem.id);
+    const product = database.getProduct(productId);
+    const option = product.options.find(option => option.id === optionId);
+    const fullDescription = product.description + ' : ' +  option.description;
+    return `${fullDescription} : $${lineItemAmount} x ${cartItem.quantity}`
+}
+
+function calculateAmountIncludingOption(cartId) {
+    const [productId, optionId] = splitCartId(cartId);
+    return calculateTotalAmount(productId, optionId);
+}
+
+function splitCartId(cartId) {
+    const [category, id, optionId] = cartId.split('-');
+    const productId = `${category}-${id}`;
+    return [productId, optionId];
+}
+
+function placeOrder() {
+    const cart = getCart();
+    if (cart.length === 0) {
+        alert("Cart is empty. Please add items before placing an order");
+        return;
+    }
+    const orderTotal = cart.reduce((total, cartItem) => total + calculateAmountIncludingOption(cartItem.id) * cartItem.quantity, 0);
+    alert(`Total amount for order: $${orderTotal.toFixed(2)}`);
+    resetCart();
+    document.body.click();
+    updateCartUI()
+}
+
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function resetCart() {
+    localStorage.removeItem("cart");
 }
 
 // Toggle cart dropdown visibility

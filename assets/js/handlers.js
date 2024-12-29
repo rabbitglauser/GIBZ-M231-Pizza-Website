@@ -3,16 +3,23 @@
  *
  * @param {HTMLElement} detailsElement - The parent element containing product details.
  * @param {HTMLSelectElement} selectElement - The select element from which the option was chosen.
- * @param {number} price - The original price of the product.
  */
-const handleSelectedProductOption = (detailsElement, selectElement, price) => {
-
-    // TODO: handle this change event to update the price of the product in the UI
-
-    console.log("The id of the parent element => " + detailsElement.getAttribute("id"));
-    console.log(`The value selected was [${selectElement.value}] for product [${selectElement.id}] original price [${price}]`);
+const handleSelectedProductOption = (detailsElement, selectElement) => {
+    // Values are like : selectElement.id === "drinks-redbull", selectedOptionId === "50cl"
+    const totalAmount = calculateTotalAmount(selectElement.id, selectElement.value);
+    const amountElement = document.getElementById(`${selectElement.id}-amount`);
+    amountElement.innerHTML = `${totalAmount}`;
 }
 
+const calculateTotalAmount = (productId, optionId) => {
+    const product = database.getProduct(productId);
+    let totalAmount = product.amount;
+    if ('options' in product) {
+         const option = product.options.find(option => option.id === optionId);
+        totalAmount += option.amount;
+    }
+    return totalAmount;
+}
 
 /**
  * Handles the process of adding a product to the cart.

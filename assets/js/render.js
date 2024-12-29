@@ -1,5 +1,24 @@
-const renderHome = (products, productContainer) => {
+const renderHome = (products, container) => {
     //TODO: dynamically render the home menu items
+
+    // render the splash screen image
+    // render the links to the product category pages
+    database.getCategories().forEach(
+        category => container.appendChild(renderProductLink(category))
+    );
+}
+
+const renderProductLink = (category) => {
+
+    // category.id
+    // category.description
+
+return  `   <div>
+        <a class="category" href="./${category.id}.html">
+            <img src="assets/images/${category.id}.jpg" alt="pizzas">
+                <span>${category.description}</span>
+        </a>
+    </div>`;
 }
 
 const renderProducts = (products, productsContainer) => {
@@ -37,7 +56,7 @@ const renderOptions = (product, detailsElement) => {
     if ('options' in product) {
         const selectElement = createCustomElement("select");
         selectElement.setAttribute("id", product.id);
-        selectElement.onchange = () => handleSelectedProductOption(detailsElement, selectElement, product.price);
+        selectElement.onchange = () => handleSelectedProductOption(detailsElement, selectElement);
         product.options.forEach(option => {
             let description = `${option.description}`;
             if ('amount' in option && option.amount > 0) {
@@ -54,19 +73,15 @@ const renderOptions = (product, detailsElement) => {
 
 const renderPrice = product => {
     const priceDiv = createCustomElement("div");
-    priceDiv.appendChild(createCustomElement("span", null, '$'));
-    priceDiv.appendChild(createCustomElement("span", "amount", product.price));
+    priceDiv.appendChild(createCustomElement("span",  `${product.id}-currency`, '$'));
+    priceDiv.appendChild(createCustomElementWithId("span", `${product.id}-amount`, product.price));
     return priceDiv;
 }
 
 const renderAddToCartButton = product => {
+    const button = createCustomElement('button', 'add-to-cart');
+    button.onclick = () => handleAddToCart(product.id);
+    button.appendChild(createCustomElement('i', 'fas fa-shopping-cart'));
+    return button;
+};
 
-    //TODO: change from using DOMParser to constructing it using dom nodes
-
-    const button =
-        `<button class="add-to-cart" onclick="handleAddToCart('${product.id}')" >
-            <i class="fas fa-shopping-cart"></i>
-         </button>`;
-    const element = new DOMParser().parseFromString(button, "text/html").body.firstChild;
-    return element;
-}

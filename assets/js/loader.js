@@ -1,30 +1,36 @@
 const loadCategoryPage = categoryName => {
-    loadHtmlFragment("./assets/header.htm", "header-placeholder");
-    loadHtmlFragment("./assets/footer.htm", "footer-placeholder");
-    if (categoryName) {
-        loadCategory(categoryName)
-    }
-    setTimeout(() => updateCartUI(), 100);
+    const headerPromise = loadHtmlFragment("./assets/header.htm", "header-placeholder")
+    const footerPromise = loadHtmlFragment("./assets/footer.htm", "footer-placeholder");
+    const categoryPromise = loadCategory(categoryName);
+    const databasePromise = database.loadDatabase();
+    Promise.all([headerPromise, footerPromise, categoryPromise, databasePromise]).then(() => updateCartUI());
 }
 
 const loadCategory = categoryName => {
-    loadData(`./data/${categoryName}.json`, renderProducts);
+    return categoryName ? loadData(`./data/${categoryName}.json`, renderProducts) : Promise.resolve();
 }
 
 function loadData(url, render) {
     const productsContainer = document.getElementById('products-container');
-    fetch(url)
+    return fetch(url)
         .then(response => response.json())
         .then(products => render(products, productsContainer))
         .catch(error => {
-            productsContainer.innerHTML = `<p>Failed to load the data from ${url} Please try again later.</p>`;
+            productsContainer.innerHTML = `<p>Failed to load the data from ${url}</p> <p>${error}</p>`;
         });
 }
 
+function loadProducts(categoryId) {
+    const productsContainer = document.getElementById('products-container');
+    const category = database.getCategory(categoryId);
+    if('products' in category) {
+        renderProducts(category.products, productsContainer);
+    }
+}
 
 // Function to load an HTML template into a placeholder
 function loadHtmlFragment(url, placeholderId) {
-    fetch(url)
+    return fetch(url)
         .then(response => response.text())
         .then(text => document.getElementById(placeholderId).innerHTML = text)
         .catch(error => console.error(`Error loading ${url}:`, error));
