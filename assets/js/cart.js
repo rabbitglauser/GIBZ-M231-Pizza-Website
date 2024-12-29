@@ -56,33 +56,52 @@ function updateCartUI() {
     let numItems = 0;
     cart.forEach(cartItem => {
         const lineItemAmount = calculateAmountIncludingOption(cartItem.id);
-        const lineItemDescription = calculateLineItemDescription(cartItem, lineItemAmount);
-        cartItems.appendChild(createCustomElement("li", "line-item", lineItemDescription));
+        cartItems.appendChild(createLineItem(cartItem, lineItemAmount));
         total += lineItemAmount * cartItem.quantity;
         numItems += cartItem.quantity
     });
-
     cartTotal.textContent = `$${total.toFixed(2)}`;
     cartCount.textContent = numItems; // cart.length;
 }
 
-function calculateLineItemDescription(cartItem, lineItemAmount) {
-    const [productId, optionId] = splitCartId(cartItem.id);
+function createLineItem(cartItem, lineItemAmount) {
+    const lineItemDescription = calculateLineItemDescription(cartItem);
+    const lineItemPrice = `$${lineItemAmount} x ${cartItem.quantity} = $${lineItemAmount * cartItem.quantity}`;
+
+    const divElement = createCustomElement("div", "line-item");
+    const lineItemDescriptionElement = createCustomElement("div", "line-item-description", lineItemDescription);
+    const lineItemTotalElement = createCustomElement("div", "line-item-total", lineItemPrice);
+    divElement.appendChild(lineItemDescriptionElement);
+    divElement.appendChild(lineItemTotalElement);
+
+    const lineItemElement = createCustomElement("li", "line-item");
+    lineItemElement.appendChild(divElement);
+    return lineItemElement;
+}
+
+function calculateLineItemDescription(cartItem) {
+    const [categoryId, productId, optionId] = splitCartId(cartItem.id);
+    const category = database.getCategory(categoryId);
     const product = database.getProduct(productId);
-    const option = product.options.find(option => option.id === optionId);
-    const fullDescription = product.description + ' : ' +  option.description;
-    return `${fullDescription} : $${lineItemAmount} x ${cartItem.quantity}`
+    let fullDescription = `${category.description} : ${product.description}`;
+    if ('options' in product) {
+        const option = product.options.find(option => option.id === optionId);
+        if (option && 'description' in option) {
+            fullDescription += ` : ${option.description}`;
+        }
+    }
+    return `${fullDescription}`
 }
 
 function calculateAmountIncludingOption(cartId) {
-    const [productId, optionId] = splitCartId(cartId);
+    const [, productId, optionId] = splitCartId(cartId);
     return calculateTotalAmount(productId, optionId);
 }
 
 function splitCartId(cartId) {
     const [category, id, optionId] = cartId.split('-');
     const productId = `${category}-${id}`;
-    return [productId, optionId];
+    return [category, productId, optionId];
 }
 
 function placeOrder() {

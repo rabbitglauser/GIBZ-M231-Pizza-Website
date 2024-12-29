@@ -49,6 +49,11 @@
     font-weight: bold;
 }
 
+.line-item-total {
+   text-align: right;
+    border-bottom: 1px solid lightblue;
+}
+
 .hidden {
     display: none;
 }
