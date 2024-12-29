@@ -111,7 +111,7 @@ function placeOrder() {
         return;
     }
     const orderTotal = cart.reduce((total, cartItem) => total + calculateAmountIncludingOption(cartItem.id) * cartItem.quantity, 0);
-    alert(`Total amount for order: $${orderTotal.toFixed(2)}`);
+    alert(`Total amount for order: $${orderTotal.toFixed(2)}. Thank you for your order.`);
     resetCart();
     document.body.click();
     updateCartUI()
