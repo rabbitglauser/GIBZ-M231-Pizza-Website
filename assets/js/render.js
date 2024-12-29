@@ -1,12 +1,14 @@
 
 const renderFeedback = () => {
     loadHtmlFragment("./assets/feedback.htm", "content-container")
+    document.title = `${companyName} - Feedback`;
 }
 
 const renderHome = (contentContainer) => {
 
     // render the header
     contentContainer.appendChild(createCustomElement("h1", null, "Welcome to Tony's Pizza Factory"));
+    document.title = `${companyName} - home`;
 
     // render the splash screen image
     const imgElement = createCustomElement("img", "splash-image");
@@ -42,6 +44,9 @@ const renderProductLink = (category) => {
 }
 
 const renderProducts = (category, products, contentContainer) => {
+
+    document.title = `${companyName} - ${category.description}`;
+
     contentContainer.appendChild(createCustomElement("h1", null, category.description));
     const divElement = createCustomElement("div", "products-container")
     products.forEach(product => {
