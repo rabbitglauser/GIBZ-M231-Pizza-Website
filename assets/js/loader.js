@@ -1,42 +1,53 @@
-const loadCategoryPage = categoryName => {
-    const headerPromise = loadHtmlFragment("./assets/header.htm", "header-placeholder")
-    const footerPromise = loadHtmlFragment("./assets/footer.htm", "footer-placeholder");
+document.addEventListener("DOMContentLoaded", () => initializeApplication());
+
+const initializeApplication = () => {
     const databasePromise = database.loadDatabase();
-    Promise.all([databasePromise, headerPromise, footerPromise]).then(() => {
+    Promise.all([databasePromise]).then(() => {
         updateCartUI();
-        loadProducts(categoryName);
+        routeTo('home');
     });
 }
 
-// const loadCategory = categoryName => {
-//     return categoryName ? loadData(`./data/${categoryName}.json`, renderProducts) : Promise.resolve();
-// }
+function addClickHandlersForRoutes() {
+    Object.keys(routingTable).forEach(route =>
+        Array.from(document.getElementsByClassName(route)).forEach(
+            element => element.onclick = () => routeTo(route)
+        )
+    )
+}
 
-// function loadData(url, render) {
-//     const productsContainer = document.getElementById('products-container');
-//     return fetch(url)
-//         .then(response => response.json())
-//         .then(products => render(products, productsContainer))
-//         .catch(error => {
-//             productsContainer.innerHTML = `<p>Failed to load the data from ${url}</p> <p>${error}</p>`;
-//         });
-// }
-
-function loadProducts(categoryId) {
-    const productsContainer = document.getElementById('products-container');
-    if(categoryId) {
-        const category = database.getCategory(categoryId);
-        if('products' in category) {
-            renderProducts(category.products, productsContainer);
+function routeTo(routePath) {
+    const contentContainer = document.getElementById('content-container');
+    contentContainer.innerHTML = ''; // remove existing content
+    if (routePath) {
+        const routingFunction = routingTable[routePath];
+        if (routingFunction) {
+            const promise = routingFunction(routePath, contentContainer);
+            if (promise) {
+                promise.then(() => addClickHandlersForRoutes());
+            }
+        } else {
+            render404Page(contentContainer).then(_ => null);
         }
     }
+    return false;
+}
+
+const routingTable = {
+    'place-order': (routePath, contentContainer) => placeOrder(contentContainer),
+    'home': (routePath, contentContainer) => { return renderHome(contentContainer)},
+    'feedback-form': (routePath, contentContainer) => { return renderFeedbackForm(contentContainer)},
+    'feedback-confirmation': (routePath, contentContainer) => renderFeedbackConfirmation(contentContainer),
+    'salads': (categoryId, contentContainer) => renderProducts(database.getCategory(categoryId), contentContainer),
+    'pizzas': (categoryId, contentContainer) => renderProducts(database.getCategory(categoryId), contentContainer),
+    'drinks': (categoryId, contentContainer) => renderProducts(database.getCategory(categoryId), contentContainer),
 }
 
 // Function to load an HTML template into a placeholder
-function loadHtmlFragment(url, placeholderId) {
+function loadHtmlFragment(url, contentContainer) {
     return fetch(url)
         .then(response => response.text())
-        .then(text => document.getElementById(placeholderId).innerHTML = text)
-        .catch(error => console.error(`Error loading ${url}:`, error));
+        .then(text => contentContainer.innerHTML = text)
+        .catch(error => console.error(`Error loading ${url} :`, error));
 }
 

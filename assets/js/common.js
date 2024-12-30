@@ -1,4 +1,6 @@
 
+const companyName = "Tony's Pizza Factory";
+
 function createCustomElement(elementName, classes, innerHtml) {
     const element = document.createElement(elementName);
     if (classes) {

@@ -7,44 +7,62 @@
     <script src="assets/js/loader.js"></script>
     <script src="assets/js/render.js"></script>
     <script src="assets/js/cart.js"></script>
+    <link rel="stylesheet" href="assets/css/feedback.css">
+    <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/cart.css">
-    <link rel="stylesheet" href="assets/css/site-layout.css">
-    <link rel="stylesheet" href="assets/css/menu-items.css">
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/products.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/home.css">
     <title>Tony's Pizza Factory - Home</title>
 </head>
 <body>
-<div id="header-placeholder"></div>
-<main class="content">
-    <h1>Welcome to Tony's Pizza Factory</h1>
-    <div class="image-section">
-        <img src="assets/images/splash.jpg" alt="Pizza Factory Interior">
+<header class="bg-primary main-theme">
+    <div id="company-title" class="company-title">
+        <img src="assets/images/logo.jpg" alt="Tony's Pizza Factory Logo"/>
+        <a class="home">Tony's Pizza Factory</a>
     </div>
-    <div class="menu-section">
-        <div>
-            <a class="category" href="./pizzas.html">
-                <img src="assets/images/pizzas.jpg" alt="Pizzas">
-                <span>Pizza</span>
-            </a>
+    <nav>
+        <a class="pizzas" >Pizzas</a>
+        <a class="salads" >Salads</a>
+        <a class="drinks" >Drinks</a>
+        <a class="feedback-form">Feedback</a>
+        <a id="cart-icon" href="#">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </a>
+        <div id="cart-dropdown" class="cart-dropdown hidden">
+            <ul id="cart-items"></ul>
+            <div class="cart-total">
+                <strong>Total:</strong> <span id="cart-total">$0.00</span>
+            </div>
+            <button id="place-order" class="place-order">Place Order</button>
         </div>
-        <div>
-            <a class="category" href="./salads.html">
-                <img src="assets/images/salads.jpg" alt="Salads">
-                <span>Salad</span>
-            </a>
-        </div>
-        <div>
-            <a class="category" href="./drinks.html">
-                <img src="assets/images/drinks.jpg" alt="Drinks">
-                <span>Soft Drinks</span>
-            </a>
-        </div>
+    </nav>
+</header>
+<main class="content">
+    <div id="content-container">
     </div>
 </main>
-<div id="footer-placeholder"></div>
-<script>
-    document.addEventListener("DOMContentLoaded", () => loadCategoryPage());
-</script>
+<footer class="bg-primary main-theme">
+    <div>
+        Hours:<br/>
+        Mon-Thu: 11 a.m. - 11 p.m.<br/>
+        Fri-Sat: 11 a.m. - Midnight<br/>
+        Sunday: Closed
+    </div>
+    <div class="customer-quote">
+        &quot;The Pizzeria is one place I have been<br/>
+        wanting to visit for a long time.<br/>
+        The reason being their Rustica pizza<br/>
+        which absolutely blew me away.&quot; - Jimmy
+    </div>
+    <div>
+        Address:<br/>
+        Tony's Pizza Factory<br/>
+        2122 N Clark St<br/>
+        Chicago, IL 60614, USA
+    </div>
+</footer>
 </body>
 </html>

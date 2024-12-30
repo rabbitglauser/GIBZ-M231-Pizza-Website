@@ -1,30 +1,73 @@
-const renderHome = (products, container) => {
-    //TODO: dynamically render the home menu items
+const render404Page = function (contentContainer) {
+    document.title = `${companyName} - 404 - resource not found`;
+    return loadHtmlFragment("./assets/404.htm", contentContainer);
+}
+
+const renderFeedbackForm = (contentContainer) => {
+    document.title = `${companyName} - Feedback`;
+    return loadHtmlFragment("./assets/feedback.htm", contentContainer)
+}
+
+const renderFeedbackConfirmation = contentContainer => {
+    document.title = `${companyName} - Confirmation`;
+    const spanElement = createCustomElement("span", null, "Thank you for your feedback!");
+    contentContainer.appendChild(spanElement);
+}
+
+const renderOrderConfirmation = (contentContainer, confirmationMessage) => {
+    document.title = `${companyName} - Order Confirmation`;
+    const spanElement = createCustomElement("span", null, confirmationMessage);
+    contentContainer.appendChild(spanElement);
+}
+
+const renderHome = (contentContainer) => {
+    // render the header
+    document.title = `${companyName} - home`;
+    contentContainer.appendChild(createCustomElement("h1", null, `Welcome to ${companyName}`));
 
     // render the splash screen image
-    // render the links to the product category pages
+    const imgElement = createCustomElement("img", "splash-image");
+    imgElement.setAttribute("src", "assets/images/splash.jpg");
+    imgElement.setAttribute("alt", "Pizza Factory Interior");
+    contentContainer.appendChild(imgElement);
+    const imageDivElement = createCustomElement("div", "image-section");
+    imageDivElement.appendChild(imgElement);
+    contentContainer.appendChild(imageDivElement);
+
+    // Render the category links
+    const menuDivElement = createCustomElement("div", "menu-section");
     database.getCategories().forEach(
-        category => container.appendChild(renderProductLink(category))
+        category => menuDivElement.appendChild(renderProductLink(category))
     );
+    contentContainer.appendChild(menuDivElement);
+    return Promise.resolve();
 }
 
 const renderProductLink = (category) => {
+    const imgElement = createCustomElement("img", "category-image");
+    imgElement.setAttribute("src", `assets/images/${category.id}.jpg`);
+    imgElement.setAttribute("alt", category.description);
+    const spanElement = createCustomElement("span", "category-description", category.description);
 
-    // category.id
-    // category.description
+    const anchorElement = createCustomElement("a", category.id);
+    anchorElement.appendChild(imgElement);
+    anchorElement.appendChild(spanElement);
 
-return  `   <div>
-        <a class="category" href="./${category.id}.html">
-            <img src="assets/images/${category.id}.jpg" alt="pizzas">
-                <span>${category.description}</span>
-        </a>
-    </div>`;
+    const divElement = createCustomElement("div");
+    divElement.appendChild(anchorElement)
+    return divElement;
 }
 
-const renderProducts = (products, productsContainer) => {
-    products.forEach(product => {
-        productsContainer.appendChild(renderProduct(product, productsContainer));
-    });
+const renderProducts = (category, contentContainer) => {
+    document.title = `${companyName} - ${category.description}`;
+    contentContainer.appendChild(createCustomElement("h1", null, category.description));
+    const divElement = createCustomElement("div", "products-container");
+    if ('products' in category) {
+        category.products.forEach(product => {
+            divElement.appendChild(renderProduct(product));
+        });
+    }
+    contentContainer.appendChild(divElement);
 };
 
 const renderProduct = product => {
@@ -73,8 +116,8 @@ const renderOptions = (product, detailsElement) => {
 
 const renderPrice = product => {
     const priceDiv = createCustomElement("div");
-    priceDiv.appendChild(createCustomElement("span",  `${product.id}-currency`, '$'));
-    priceDiv.appendChild(createCustomElementWithId("span", `${product.id}-amount`, product.price));
+    priceDiv.appendChild(createCustomElement("span", `${product.id}-currency`, '$'));
+    priceDiv.appendChild(createCustomElementWithId("span", `${product.id}-amount`, product.amount));
     return priceDiv;
 }
 

@@ -1,4 +1,4 @@
-.content-container {
+#content-container {
     font-family: Arial, sans-serif;
     padding: 20px;
 
@@ -9,7 +9,7 @@
     }
 }
 
-#products-container {
+.products-container {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -64,17 +64,20 @@
 
         & button {
             cursor: pointer;
+            padding: 7px;
+        }
+
+        & i.fa-shopping-cart:hover {
+            color: #007BFF;
         }
 
         & .fa-shopping-cart {
             font-size: 1.2em;
             color: #333;
+            width: 100%;
             transition: color 0.3s;
         }
 
-        & .fa-shopping-cart:hover {
-            color: #007BFF;
-        }
 
     }
 }
