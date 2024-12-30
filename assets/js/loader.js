@@ -5,7 +5,6 @@ const initializeApplication = () => {
     Promise.all([databasePromise]).then(() => {
         updateCartUI();
         routeTo('home');
-        addClickHandlersForRoutes();
     });
 }
 
@@ -36,7 +35,7 @@ function routeTo(routePath) {
 }
 
 const routingTable = {
-    'home': (routePath, contentContainer) => renderHome(contentContainer),
+    'home': (routePath, contentContainer) => { return renderHome(contentContainer)},
     'feedback-form': (routePath, contentContainer) => { return renderFeedbackForm(contentContainer)},
     'feedback-confirmation': (routePath, contentContainer) => renderFeedbackConfirmation(contentContainer),
     'salads': (categoryId, contentContainer) => renderProducts(database.getCategory(categoryId), contentContainer),

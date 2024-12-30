@@ -34,6 +34,7 @@ const renderHome = (contentContainer) => {
         category => menuDivElement.appendChild(renderProductLink(category))
     );
     contentContainer.appendChild(menuDivElement);
+    return Promise.resolve();
 }
 
 const renderProductLink = (category) => {
@@ -43,7 +44,6 @@ const renderProductLink = (category) => {
     const spanElement = createCustomElement("span", "category-description", category.description);
 
     const anchorElement = createCustomElement("a", category.id);
-    // anchorElement.onclick = () => loadProducts(category.id);
     anchorElement.appendChild(imgElement);
     anchorElement.appendChild(spanElement);
 
