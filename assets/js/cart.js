@@ -104,17 +104,18 @@ function splitCartId(cartId) {
     return [category, productId, optionId];
 }
 
-function placeOrder() {
+function placeOrder(contentContainer) {
     const cart = getCart();
     if (cart.length === 0) {
-        alert("Cart is empty. Please add items before placing an order");
+        renderOrderConfirmation(contentContainer, "Cart is empty. Please add items before placing an order");
         return;
     }
     const orderTotal = cart.reduce((total, cartItem) => total + calculateAmountIncludingOption(cartItem.id) * cartItem.quantity, 0);
-    alert(`Total amount for order: $${orderTotal.toFixed(2)}. Thank you for your order.`);
+    const confirmationMessage = `Total amount for order: $${orderTotal.toFixed(2)}. Thank you for your order.`;
+    renderOrderConfirmation(contentContainer, confirmationMessage);
     resetCart();
     document.body.click();
-    updateCartUI()
+    updateCartUI();
 }
 
 function getCart() {

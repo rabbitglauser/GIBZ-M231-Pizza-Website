@@ -10,7 +10,13 @@ const renderFeedbackForm = (contentContainer) => {
 
 const renderFeedbackConfirmation = contentContainer => {
     document.title = `${companyName} - Confirmation`;
-    const spanElement = createCustomElement("span", "category-description", "Thank you for your feedback!");
+    const spanElement = createCustomElement("span", null, "Thank you for your feedback!");
+    contentContainer.appendChild(spanElement);
+}
+
+const renderOrderConfirmation = (contentContainer, confirmationMessage) => {
+    document.title = `${companyName} - Order Confirmation`;
+    const spanElement = createCustomElement("span", null, confirmationMessage);
     contentContainer.appendChild(spanElement);
 }
 

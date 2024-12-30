@@ -9,7 +9,6 @@ const initializeApplication = () => {
 }
 
 function addClickHandlersForRoutes() {
-    document.getElementById("place-order").onclick = () => placeOrder();
     Object.keys(routingTable).forEach(route =>
         Array.from(document.getElementsByClassName(route)).forEach(
             element => element.onclick = () => routeTo(route)
@@ -35,6 +34,7 @@ function routeTo(routePath) {
 }
 
 const routingTable = {
+    'place-order': (routePath, contentContainer) => placeOrder(contentContainer),
     'home': (routePath, contentContainer) => { return renderHome(contentContainer)},
     'feedback-form': (routePath, contentContainer) => { return renderFeedbackForm(contentContainer)},
     'feedback-confirmation': (routePath, contentContainer) => renderFeedbackConfirmation(contentContainer),
