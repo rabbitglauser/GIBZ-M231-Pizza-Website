@@ -1,22 +1,36 @@
-const loadPage = categoryName => {
+
+document.addEventListener("DOMContentLoaded", () => initializeApplication());
+
+const initializeApplication = () => {
     const databasePromise = database.loadDatabase();
     Promise.all([databasePromise]).then(() => {
         updateCartUI();
-        loadProducts(categoryName);
-        document.getElementById("place-order").onclick = () => placeOrder();
+        routeTo('home');
+        addClickHandlersForRoutes();
     });
 }
 
-function loadProducts(categoryId) {
+function addClickHandlersForRoutes() {
+    document.getElementById("place-order").onclick = () => placeOrder();
+    ["home","feedback","salads","pizzas","drinks"].forEach(route =>
+        Array.from(document.getElementsByClassName(route)).forEach(
+            element => {
+                element.onclick = () => routeTo(route);
+            }
+        )
+    )
+}
+
+function routeTo(routePath) {
     const contentContainer = document.getElementById('content-container');
     contentContainer.innerHTML = ''; // remove existing content
-    if(categoryId) {
-        if (categoryId === 'feedback') {
+    if (routePath) {
+        if (routePath === 'feedback') {
             renderFeedback();
-        } else if (categoryId === 'home') {
+        } else if (routePath === 'home') {
             renderHome(contentContainer)
         } else {
-            const category = database.getCategory(categoryId);
+            const category = database.getCategory(routePath);
             if ('products' in category) {
                 renderProducts(category, category.products, contentContainer);
             }

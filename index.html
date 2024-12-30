@@ -19,13 +19,13 @@
 <body>
 <header class="bg-primary main-theme">
     <div id="company-title" class="company-title">
-        <a onclick="loadProducts('home');">Tony's Pizza Factory</a>
+        <a class="home">Tony's Pizza Factory</a>
     </div>
     <nav>
-        <a onclick="loadProducts('pizzas');">Pizzas</a>
-        <a onclick="loadProducts('salads');">Salads</a>
-        <a onclick="loadProducts('drinks');">Drinks</a>
-        <a onclick="loadProducts('feedback');">Feedback</a>
+        <a class="pizzas" >Pizzas</a>
+        <a class="salads" >Salads</a>
+        <a class="drinks" >Drinks</a>
+        <a class="feedback">Feedback</a>
         <a id="cart-icon" href="#">
             <i class="fas fa-shopping-cart"></i>
             <span id="cart-count">0</span>
@@ -64,8 +64,5 @@
         Chicago, IL 60614, USA
     </div>
 </footer>
-<script>
-    document.addEventListener("DOMContentLoaded", () => loadPage('home'));
-</script>
 </body>
 </html>
