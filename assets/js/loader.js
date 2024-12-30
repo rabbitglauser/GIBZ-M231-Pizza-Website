@@ -29,7 +29,7 @@ function routeTo(routePath) {
                 promise.then(() => addClickHandlersForRoutes());
             }
         } else {
-            render404Page(contentContainer).then(r => null);
+            render404Page(contentContainer).then(_ => null);
         }
     }
     return false;
