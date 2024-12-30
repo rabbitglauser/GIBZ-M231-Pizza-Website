@@ -6,7 +6,6 @@ const initializeApplication = () => {
     Promise.all([databasePromise]).then(() => {
         updateCartUI();
         routeTo('home');
-        addClickHandlersForRoutes();
     });
 }
 
