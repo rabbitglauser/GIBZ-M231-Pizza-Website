@@ -1,14 +1,23 @@
+const render404Page = function (contentContainer) {
+    document.title = `${companyName} - 404 - resource not found`;
+    return loadHtmlFragment("./assets/404.htm", contentContainer);
+}
 
-const renderFeedback = () => {
-    loadHtmlFragment("./assets/feedback.htm", "content-container")
+const renderFeedbackForm = (contentContainer) => {
     document.title = `${companyName} - Feedback`;
+    return loadHtmlFragment("./assets/feedback.htm", contentContainer)
+}
+
+const renderFeedbackConfirmation = contentContainer => {
+    document.title = `${companyName} - Confirmation`;
+    const spanElement = createCustomElement("span", "category-description", "Thank you for your feedback!");
+    contentContainer.appendChild(spanElement);
 }
 
 const renderHome = (contentContainer) => {
-
     // render the header
-    contentContainer.appendChild(createCustomElement("h1", null, `Welcome to ${companyName}`));
     document.title = `${companyName} - home`;
+    contentContainer.appendChild(createCustomElement("h1", null, `Welcome to ${companyName}`));
 
     // render the splash screen image
     const imgElement = createCustomElement("img", "splash-image");
@@ -25,8 +34,6 @@ const renderHome = (contentContainer) => {
         category => menuDivElement.appendChild(renderProductLink(category))
     );
     contentContainer.appendChild(menuDivElement);
-
-    addClickHandlersForRoutes();
 }
 
 const renderProductLink = (category) => {
@@ -45,15 +52,15 @@ const renderProductLink = (category) => {
     return divElement;
 }
 
-const renderProducts = (category, products, contentContainer) => {
-
+const renderProducts = (category, contentContainer) => {
     document.title = `${companyName} - ${category.description}`;
-
     contentContainer.appendChild(createCustomElement("h1", null, category.description));
-    const divElement = createCustomElement("div", "products-container")
-    products.forEach(product => {
-        divElement.appendChild(renderProduct(product));
-    });
+    const divElement = createCustomElement("div", "products-container");
+    if ('products' in category) {
+        category.products.forEach(product => {
+            divElement.appendChild(renderProduct(product));
+        });
+    }
     contentContainer.appendChild(divElement);
 };
 
