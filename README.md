@@ -2,6 +2,9 @@
 
 ## Features 🌟
 
+### Visite the website!
+- https://rabbitglauser.github.io/GIBZ-M231-Pizza-Website/
+
 ### Website Layout 🎨
 - 🖌️ The layout is designed based on a provided mockup.
 - 🔗 All website links work perfectly, leading to the correct pages.
